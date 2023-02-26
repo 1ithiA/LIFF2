@@ -63,6 +63,13 @@
     }
 
     async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag){
+        if (confirm("You haven't added Forgather Bot. Add now?")){
+          window.location = "https://www.w3schools.com" 
+        }
+      }
     }
 
     async function sendMsg() {
@@ -70,8 +77,8 @@
         await liff.sendMessages([
         {
           "type": "sticker",
-          "stickerId": 2,
-          "packageId": 1
+          "stickerId": 52002738,
+          "packageId": 11537
         }
         ])
         alert("Message sent")
@@ -116,7 +123,7 @@
       getEnvironment()
       getUserProfile()
       getContext()
-      // getFriendship()
+      getFriendship()
       // createUniversalLink()
     }
     main()
